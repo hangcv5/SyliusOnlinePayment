@@ -1,0 +1,28 @@
+app.sylius_payment:
+  class: Payum\Core\Bridge\Symfony\Builder\GatewayFactoryBuilder
+  arguments: [ Acme\SyliusExamplePlugin\Payum\SyliusPaymentGatewayFactory ]
+  tags:
+    - { name: payum.gateway_factory_builder, factory: sylius_payment }
+
+Acme\SyliusExamplePlugin\Form\Type\SyliusGatewayConfigurationType:
+  tags:
+    - { name: sylius.gateway_configuration_type, type: sylius_payment, label: 'Wintopay Payment' }
+    - { name: form.type }
+
+Acme\SyliusExamplePlugin\Payum\Action\CaptureAction:
+  arguments:
+    - '@sylius.http_client'
+  tags:
+    - { name: payum.action, factory: sylius_payment, alias: payum.action.capture }
+
+acme_wintopay_callback_url:
+  path: /wintopay/payment/callback
+  methods: [GET,POST]
+  defaults:
+    _controller:  Acme\SyliusExamplePlugin\Controller\CallbackController::callback
+
+
+
+
+
+
