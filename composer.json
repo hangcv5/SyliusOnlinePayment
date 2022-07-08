@@ -1,7 +1,7 @@
 {
-    "name": "payment/sylius-online-payment",
+    "name": "sylius-payment/sylius-online-payment",
     "type": "sylius-plugin",
-    "description": "Acme example plugin for Sylius.",
+    "description": "Acme online payment plugin for Sylius.",
     "keywords": [
         "sylius",
         "sylius-plugin"
