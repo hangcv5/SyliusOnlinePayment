@@ -15,11 +15,7 @@ Acme\SyliusExamplePlugin\Payum\Action\CaptureAction:
   tags:
     - { name: payum.action, factory: sylius_payment, alias: payum.action.capture }
 
-acme_wintopay_callback_url:
-  path: /wintopay/payment/callback
-  methods: [GET,POST]
-  defaults:
-    _controller:  Acme\SyliusExamplePlugin\Controller\CallbackController::callback
+
 
 
 
